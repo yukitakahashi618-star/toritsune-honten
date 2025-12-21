@@ -13,10 +13,12 @@ body {
     font-family: "游明朝", "Hiragino Mincho ProN", serif;
     background-color: #111;
     color: #eee;
-    line-height: 1.8;
+    line-height: 1.9;
+
+    /* 日本語改行の最適解 */
     word-break: normal;
     overflow-wrap: break-word;
-    line-break: strict;
+    line-break: normal;
 }
 
 /* =========================
@@ -28,23 +30,31 @@ body {
     margin: 0 auto;
 }
 
+/* セクション余白はここだけで管理 */
 .section {
-    padding: 80px 0;
+    padding: 72px 0;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 56px 0;
+    }
 }
 
 .section-title {
     font-size: 28px;
-    margin-bottom: 30px;
     text-align: center;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
+    margin-bottom: 36px;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     .section-title {
-        letter-spacing: 0.05em;
+        font-size: 24px;
+        letter-spacing: 0.06em;
+        margin-bottom: 28px;
     }
 }
-
 
 .bg-dark {
     background-color: #1a1a1a;
@@ -56,6 +66,9 @@ body {
 .header {
     background-color: #000;
     border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .header .container {
@@ -67,15 +80,18 @@ body {
 
 .logo {
     font-size: 24px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.18em;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     .logo {
         letter-spacing: 0.08em;
     }
 }
 
+/* =========================
+   ナビゲーション
+========================= */
 .nav ul {
     list-style: none;
     display: flex;
@@ -93,7 +109,87 @@ body {
 }
 
 /* =========================
-   メインビジュアル（スライド）
+   ハンバーガーメニュー
+========================= */
+.hamburger {
+    display: none;
+    position: relative;
+    width: 28px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0;
+}
+
+.hamburger span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger span:nth-child(3) {
+    bottom: 0;
+}
+
+/* × に正しく変形 */
+.hamburger.active span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+/* =========================
+   スマホ用ナビ
+========================= */
+@media (max-width: 768px) {
+    .nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #000;
+        display: none;
+        padding: 28px 0;
+        z-index: 999;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 22px;
+    }
+
+    .nav.active {
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+/* =========================
+   メインビジュアル
 ========================= */
 .hero {
     position: relative;
@@ -122,10 +218,9 @@ body {
 .hero-text {
     position: relative;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 36px;
     text-align: center;
-    color: #fff;
     max-width: 700px;
     margin: 0 auto;
     top: 50%;
@@ -133,27 +228,45 @@ body {
 }
 
 /* =========================
-   ご挨拶・案内
+   ご挨拶
 ========================= */
-.intro {
+.intro p {
+    max-width: 30em;
+    /* 行の長さを制御 */
+    margin: 0 auto 1.8em;
+    /* 段落間だけ余白 */
     text-align: center;
     line-height: 2;
-    font-size: 15px;
 }
 
-.intro p {
-    margin-bottom: 1.5em;
+@media (max-width: 768px) {
+    .intro p {
+        max-width: 24em;
+        font-size: 15px;
+        line-height: 2;
+    }
 }
 
-.guide {
-    max-width: 600px;
-    margin: 0 auto;
-    list-style: none;
+/* =========================
+   店内案内（ギャラリー）
+========================= */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
 }
 
-.guide li {
-    padding: 10px 0;
-    border-bottom: 1px solid #333;
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
 }
 
 /* =========================
@@ -163,8 +276,7 @@ body {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 40px;
-    row-gap: 10px;
+    gap: 12px 40px;
     max-width: 900px;
     margin: 0 auto;
 }
@@ -172,13 +284,15 @@ body {
 .menu-list li {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     border-bottom: 1px solid #444;
     padding: 10px 0;
 }
 
 .menu-name {
     font-size: 14px;
-    max-width: 65%;
+    max-width: 70%;
+    line-height: 1.6;
 }
 
 .menu-price {
@@ -186,125 +300,30 @@ body {
     white-space: nowrap;
 }
 
-.sub-title {
-    margin: 50px 0 20px;
-    text-align: center;
-    font-size: 20px;
-    letter-spacing: 0.1em;
-    color: #ccc;
-}
-
-.drink-title {
-    margin: 40px 0 15px;
-    text-align: center;
-    font-size: 16px;
-    letter-spacing: 0.1em;
-    color: #aaa;
-}
-
 /* =========================
-   画像ポップアップ
+   ポップアップ
 ========================= */
 .popup {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
     display: none;
     align-items: center;
     justify-content: center;
-    z-index: 999;
+    z-index: 2000;
 }
 
 .popup.active {
     display: flex;
 }
 
-.popup-content {
-    position: relative;
-    max-width: 90%;
-    max-height: 90%;
-}
-
 .popup-content img {
-    width: 100%;
+    max-width: 90%;
     max-height: 80vh;
-    object-fit: contain;
-}
-
-.popup-close {
-    position: absolute;
-    top: -40px;
-    right: 0;
-    font-size: 32px;
-    color: #fff;
-    cursor: pointer;
-}
-
-.popup-trigger {
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-.popup-trigger:hover {
-    color: #fff;
 }
 
 /* =========================
-   店内ギャラリー
-========================= */
-/* 店内ギャラリー */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
-
-.gallery img {
-    width: 100%;
-    height: 200px;
-    /* ← 表示したい高さを固定 */
-    object-fit: cover;
-    /* ← はみ出した部分をトリミング */
-    border-radius: 6px;
-}
-
-/* =========================
-   店舗情報・FAQ
-========================= */
-.shop-info {
-    max-width: 700px;
-    margin: 0 auto;
-    font-size: 14px;
-}
-
-.shop-info div {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    padding: 12px 0;
-    border-bottom: 1px solid #333;
-}
-
-.shop-info dt {
-    color: #aaa;
-    letter-spacing: 0.1em;
-}
-
-.shop-info dd {
-    color: #eee;
-}
-
-.faq dt {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-.faq dd {
-    margin-top: 5px;
-    color: #ccc;
-}
-
-/* =========================
-   電話・フッター
+   フッター・電話
 ========================= */
 .tel {
     text-align: center;
@@ -317,7 +336,7 @@ body {
 }
 
 .footer {
-    background-color: #000;
+    background: #000;
     padding: 40px 0;
     text-align: center;
     font-size: 13px;
@@ -328,39 +347,26 @@ body {
    スマホ固定電話ボタン
 ========================= */
 .call-fixed {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #000;
-    text-align: center;
-    z-index: 999;
     display: none;
 }
 
-.call-fixed a {
-    display: block;
-    padding: 14px 0;
-    color: #fff;
-    font-size: 18px;
-    text-decoration: none;
-    letter-spacing: 0.1em;
-}
-
-/* =========================
-   レスポンシブ
-========================= */
-@media screen and (max-width: 768px) {
-    .nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .hero-text h2 {
-        font-size: 24px;
-    }
-
+@media (max-width: 768px) {
     .call-fixed {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #000;
+        text-align: center;
+        z-index: 1500;
         display: block;
+    }
+
+    .call-fixed a {
+        display: block;
+        padding: 14px 0;
+        color: #fff;
+        font-size: 18px;
+        text-decoration: none;
     }
 }

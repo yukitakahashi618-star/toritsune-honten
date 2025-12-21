@@ -36,7 +36,7 @@
     <header class="header">
         <div class="container">
             <h1 class="logo">鳥常 本店</h1>
-            <nav class="nav">
+            <nav class="nav" id="nav">
                 <ul>
                     <li><a href="#about">ご挨拶</a></li>
                     <li><a href="#menu">お品書き</a></li>
@@ -44,6 +44,11 @@
                     <li><a href="#contact">ご予約</a></li>
                 </ul>
             </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
@@ -66,8 +71,11 @@
         <div class="container intro">
             <h2 class="section-title">ご挨拶</h2>
             <p>
-                鳥常 本店は、足利の地にて<br>
-                炭火焼きのうなぎと鳥料理を提供してまいりました。<br><br>
+                鳥常 本店は、足利の地にて炭火焼きのうなぎと
+                鳥料理を提供してまいりました。
+            </p>
+
+            <p>
                 受け継がれてきた味を、心を込めてお出しいたします。
             </p>
         </div>
@@ -273,9 +281,36 @@
                     if (e.target === popup) popup.classList.remove('active');
                 });
             }
+
+            /* ===== ハンバーガーメニュー ===== */
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('nav');
+            const overlay = document.getElementById('nav-overlay');
+
+            if (hamburger && nav && overlay) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    nav.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+
+                overlay.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+
+                document.querySelectorAll('.nav a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        nav.classList.remove('active');
+                        overlay.classList.remove('active');
+                    });
+                });
+            }
         });
     </script>
-
+    <div class="nav-overlay" id="nav-overlay"></div>
     <div class="call-fixed">
         <a href="tel:0284413330">📞 電話する</a>
     </div>
