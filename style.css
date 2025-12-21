@@ -14,6 +14,9 @@ body {
     background-color: #111;
     color: #eee;
     line-height: 1.8;
+    word-break: normal;
+    overflow-wrap: break-word;
+    line-break: strict;
 }
 
 /* =========================
@@ -35,6 +38,13 @@ body {
     text-align: center;
     letter-spacing: 0.1em;
 }
+
+@media screen and (max-width: 768px) {
+    .section-title {
+        letter-spacing: 0.05em;
+    }
+}
+
 
 .bg-dark {
     background-color: #1a1a1a;
@@ -58,6 +68,12 @@ body {
 .logo {
     font-size: 24px;
     letter-spacing: 0.2em;
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        letter-spacing: 0.08em;
+    }
 }
 
 .nav ul {
@@ -123,6 +139,10 @@ body {
     text-align: center;
     line-height: 2;
     font-size: 15px;
+}
+
+.intro p {
+    margin-bottom: 1.5em;
 }
 
 .guide {
@@ -241,8 +261,10 @@ body {
 
 .gallery img {
     width: 100%;
-    height: 200px;          /* ← 表示したい高さを固定 */
-    object-fit: cover;     /* ← はみ出した部分をトリミング */
+    height: 200px;
+    /* ← 表示したい高さを固定 */
+    object-fit: cover;
+    /* ← はみ出した部分をトリミング */
     border-radius: 6px;
 }
 
