@@ -370,3 +370,50 @@ body {
         text-decoration: none;
     }
 }
+
+/* ポップアップの背景 */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    display: none;
+    /* 初期は非表示 */
+}
+
+/* ポップアップ本体 */
+.popup-content {
+    background: #fff; /* 白背景 */
+    color: #222;      /* 文字を濃いめに */
+    font-weight: 600; /* 少し太め */
+    font-size: 16px;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4); /* 影で浮き上がる */
+}
+
+.popup-content h2 {
+    margin-bottom: 15px;
+}
+
+.popup-content button {
+    margin-top: 20px;
+    padding: 8px 16px;
+    background: #d32f2f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background: #b71c1c;
+}

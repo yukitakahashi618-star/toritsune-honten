@@ -31,7 +31,14 @@
 </head>
 
 <body>
-
+    <!-- 臨時休業ポップアップ -->
+    <div id="holiday-popup" class="popup-overlay">
+        <div class="popup-content">
+            <h2>お知らせ</h2>
+            <p>本日、急遽お店を休業させていただきます。ご迷惑をおかけします。</p>
+            <button id="close-popup">閉じる</button>
+        </div>
+    </div>
     <!-- ヘッダー -->
     <header class="header">
         <div class="container">
@@ -306,6 +313,24 @@
                         nav.classList.remove('active');
                         overlay.classList.remove('active');
                     });
+                });
+            }
+            // 臨時休業ポップアップ
+            const holidayPopup = document.getElementById('holiday-popup');
+            const closePopupBtn = document.getElementById('close-popup');
+
+            if (holidayPopup && closePopupBtn) {
+                // ページ読み込み時に表示
+                holidayPopup.style.display = 'flex';
+
+                // 閉じるボタン
+                closePopupBtn.addEventListener('click', () => {
+                    holidayPopup.style.display = 'none';
+                });
+
+                // 背景クリックでも閉じる
+                holidayPopup.addEventListener('click', e => {
+                    if (e.target === holidayPopup) holidayPopup.style.display = 'none';
                 });
             }
         });
