@@ -31,14 +31,6 @@
 </head>
 
 <body>
-    <!-- 臨時休業ポップアップ -->
-    <div id="holiday-popup" class="popup-overlay">
-        <div class="popup-content">
-            <h2>お知らせ</h2>
-            <p>本日、急遽お店を休業させていただきます。ご迷惑をおかけします。</p>
-            <button id="close-popup">閉じる</button>
-        </div>
-    </div>
     <!-- ヘッダー -->
     <header class="header">
         <div class="container">
@@ -72,6 +64,44 @@
             <p>創業◯年。変わらぬ技で焼き上げる鰻料理。</p>
         </div>
     </section>
+
+    <section id="news" class="section news-section">
+        <div class="container">
+            <h2 class="section-title">お知らせ</h2>
+            <ul class="news-list">
+                <li data-title="年末年始営業予定" data-content="2025年12月31日〜2026年1月3日は休業となります。">
+                    <span class="news-date">2025-12-25</span>
+                    <span class="news-content">年末年始の営業予定を更新しました。</span>
+                </li>
+                <li data-title="臨時休業" data-content="本日、急遽お休みとなります。ご迷惑をおかけします。">
+                    <span class="news-date">2025-12-20</span>
+                    <span class="news-content">本日、急遽お休みとなります。</span>
+                </li>
+                <li data-title="価格改定" data-content="うな重（特上）¥4,000 → ¥4,200に変更しました。">
+                    <span class="news-date">2025-12-15</span>
+                    <span class="news-content">価格改定のお知らせ</span>
+                </li>
+                <li data-title="営業時間変更" data-content="12月10日は16:00までの営業となります。">
+                    <span class="news-date">2025-12-10</span>
+                    <span class="news-content">営業時間変更のお知らせ</span>
+                </li>
+                <li data-title="新メニュー追加" data-content="冬季限定「鰻の柳川鍋」をメニューに追加しました。">
+                    <span class="news-date">2025-12-05</span>
+                    <span class="news-content">新メニュー追加</span>
+                </li>
+                <!-- 必要に応じて過去のお知らせを追加 -->
+            </ul>
+        </div>
+    </section>
+
+    <!-- モーダル -->
+    <div id="news-modal" class="news-modal">
+        <div class="news-modal-content">
+            <span class="news-modal-close">&times;</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-content"></p>
+        </div>
+    </div>
 
     <!-- ご挨拶 -->
     <section id="about" class="section">
@@ -259,6 +289,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
+            /* ===== スライドショー ===== */
             const slides = document.querySelectorAll('.slide');
             let currentIndex = 0;
 
@@ -270,10 +301,11 @@
                 }, 5000);
             }
 
+            /* ===== 画像ポップアップ ===== */
             const triggers = document.querySelectorAll('.popup-trigger');
             const popup = document.getElementById('popup');
             const popupImage = document.getElementById('popup-image');
-            const closeBtn = document.querySelector('.popup-close');
+            const popupCloseBtn = document.querySelector('.popup-close');
 
             if (popup) {
                 triggers.forEach(trigger => {
@@ -283,7 +315,7 @@
                     });
                 });
 
-                closeBtn.addEventListener('click', () => popup.classList.remove('active'));
+                popupCloseBtn.addEventListener('click', () => popup.classList.remove('active'));
                 popup.addEventListener('click', e => {
                     if (e.target === popup) popup.classList.remove('active');
                 });
@@ -315,24 +347,28 @@
                     });
                 });
             }
-            // 臨時休業ポップアップ
-            const holidayPopup = document.getElementById('holiday-popup');
-            const closePopupBtn = document.getElementById('close-popup');
 
-            if (holidayPopup && closePopupBtn) {
-                // ページ読み込み時に表示
-                holidayPopup.style.display = 'flex';
+            /* ===== お知らせモーダル ===== */
+            const newsModal = document.getElementById('news-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            const newsModalClose = document.querySelector('.news-modal-close');
 
-                // 閉じるボタン
-                closePopupBtn.addEventListener('click', () => {
-                    holidayPopup.style.display = 'none';
+            if (newsModal) {
+                document.querySelectorAll('.news-list li').forEach(item => {
+                    item.addEventListener('click', () => {
+                        modalTitle.innerText = item.dataset.title;
+                        modalContent.innerText = item.dataset.content;
+                        newsModal.style.display = 'flex';
+                    });
                 });
 
-                // 背景クリックでも閉じる
-                holidayPopup.addEventListener('click', e => {
-                    if (e.target === holidayPopup) holidayPopup.style.display = 'none';
+                newsModalClose.addEventListener('click', () => newsModal.style.display = 'none');
+                newsModal.addEventListener('click', e => {
+                    if (e.target === newsModal) newsModal.style.display = 'none';
                 });
             }
+
         });
     </script>
     <div class="nav-overlay" id="nav-overlay"></div>

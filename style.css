@@ -371,49 +371,92 @@ body {
     }
 }
 
-/* ポップアップの背景 */
-.popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    display: none;
-    /* 初期は非表示 */
+/* news */
+.news-section {
+    background-color: #f9f9f9;
+    padding: 40px 0;
 }
 
-/* ポップアップ本体 */
-.popup-content {
-    background: #fff; /* 白背景 */
-    color: #222;      /* 文字を濃いめに */
-    font-weight: 600; /* 少し太め */
-    font-size: 16px;
+.news-section .section-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.news-list {
+    max-width: 700px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+    
+    /* 高さを3行分に固定して残りはスクロール */
+    max-height: calc(3 * 54px); /* liの高さを54px想定 */
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.news-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    height: 54px; /* 高さを固定 */
+    box-sizing: border-box;
+}
+
+.news-list li:nth-child(odd) {
+    background-color: #fff;
+}
+
+.news-date {
+    font-weight: bold;
+    color: #555;
+    flex-shrink: 0;
+}
+
+.news-content {
+    color: #333;
+    margin-left: 15px;
+    flex-grow: 1;
+}
+
+.news-list li:hover {
+    background-color: #ffeaea;
+}
+
+/* モーダル */
+.news-modal {
+    display: none;
+    position: fixed;
+    top:0; left:0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.news-modal-content {
+    background: #fff;          /* 白背景 */
+    color: #333;               /* 文字を濃いグレーで読みやすく */
     padding: 30px;
     border-radius: 10px;
-    text-align: center;
-    max-width: 400px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4); /* 影で浮き上がる */
+    max-width: 500px;
+    width: 90%;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    font-size: 16px;           /* 読みやすいサイズ */
+    line-height: 1.6;          /* 行間を広げて読みやすく */
 }
 
-.popup-content h2 {
-    margin-bottom: 15px;
-}
-
-.popup-content button {
-    margin-top: 20px;
-    padding: 8px 16px;
-    background: #d32f2f;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+.news-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
     cursor: pointer;
-}
-
-.popup-content button:hover {
-    background: #b71c1c;
 }
