@@ -21,6 +21,9 @@ body {
     line-break: normal;
 }
 
+#modal-content {
+    white-space: pre-line;
+}
 /* =========================
    共通レイアウト
 ========================= */
@@ -32,7 +35,7 @@ body {
 
 /* セクション余白はここだけで管理 */
 .section {
-    padding: 72px 0;
+    padding: 40px 0;
 }
 
 @media (max-width: 768px) {
@@ -158,6 +161,21 @@ body {
     transform: translateY(-50%) rotate(-45deg);
 }
 
+.greeting {
+  max-width: 42em;   /* ← 日本語は40〜45emが読みやすい */
+  margin: 0 auto;
+  padding: 0 1.2rem;
+}
+.greeting p {
+  line-break: strict;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  hanging-punctuation: allow-end;
+}
+.nowrap {
+  white-space: nowrap;
+}
+
 /* =========================
    スマホ用ナビ
 ========================= */
@@ -205,10 +223,10 @@ body {
 .slide {
     position: absolute;
     inset: 0;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 .slide.active {
@@ -230,43 +248,72 @@ body {
 /* =========================
    ご挨拶
 ========================= */
-.intro p {
-    max-width: 30em;
-    /* 行の長さを制御 */
-    margin: 0 auto 1.8em;
-    /* 段落間だけ余白 */
-    text-align: center;
-    line-height: 2;
+#about .intro p {
+  max-width: none;     /* ← 30em制限を解除 */
+  margin: 0 0 1.8em;
+  text-align: center;
+  line-height: 2;
+
+  /* す。対策（ここに集約） */
+  line-break: strict;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  hanging-punctuation: allow-end;
+}
+#about .intro p:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
-    .intro p {
-        max-width: 24em;
-        font-size: 15px;
-        line-height: 2;
-    }
+  #about .intro {
+    max-width: 28em;   /* ← スマホは少しだけ狭める */
+  }
+  #about .intro p {
+    font-size: 15px;
+    line-height: 2;
+  }
 }
-
 /* =========================
    店内案内（ギャラリー）
 ========================= */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
 }
 
 @media (max-width: 768px) {
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-.gallery img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 6px;
+.gallery-item {
+  text-align: center;
+}
+
+.gallery-title {
+  margin-bottom: 14px;
+  color: #eee;
+  font-size: 18px;
+  letter-spacing: 0.2em;
+  font-family: "游明朝", "Hiragino Mincho ProN", serif;
+}
+
+/* ★写真の“枠”を固定（ここが重要） */
+.gallery-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;   /* 縦長にしたいなら3/4、横長なら16/9に */
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* ★画像は枠いっぱいに */
+.gallery-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* =========================

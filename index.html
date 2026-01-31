@@ -61,35 +61,19 @@
 
         <div class="hero-text">
             <h2>伝統の味を、静かなひとときとともに</h2>
-            <p>創業◯年。変わらぬ技で焼き上げる鰻料理。</p>
+            <p>創業140年余。変わらぬ技で焼き上げる鰻料理。</p>
         </div>
     </section>
 
     <section id="news" class="section news-section">
         <div class="container">
             <h2 class="section-title">お知らせ</h2>
+            <!-- 必要に応じて過去のお知らせを追加 上に追加していく-->
             <ul class="news-list">
-                <li data-title="年末年始営業予定" data-content="2025年12月31日〜2026年1月3日は休業となります。">
-                    <span class="news-date">2025-12-25</span>
-                    <span class="news-content">年末年始の営業予定を更新しました。</span>
+                <li data-title="HP開設" data-content="鳥常本店のHPを作成しました。\nお知らせ等もこちらで記載いたします。">
+                    <span class="news-date">20260201</span>
+                    <span class="news-content">HP開設</span>
                 </li>
-                <li data-title="臨時休業" data-content="本日、急遽お休みとなります。ご迷惑をおかけします。">
-                    <span class="news-date">2025-12-20</span>
-                    <span class="news-content">本日、急遽お休みとなります。</span>
-                </li>
-                <li data-title="価格改定" data-content="うな重（特上）¥4,000 → ¥4,200に変更しました。">
-                    <span class="news-date">2025-12-15</span>
-                    <span class="news-content">価格改定のお知らせ</span>
-                </li>
-                <li data-title="営業時間変更" data-content="12月10日は16:00までの営業となります。">
-                    <span class="news-date">2025-12-10</span>
-                    <span class="news-content">営業時間変更のお知らせ</span>
-                </li>
-                <li data-title="新メニュー追加" data-content="冬季限定「鰻の柳川鍋」をメニューに追加しました。">
-                    <span class="news-date">2025-12-05</span>
-                    <span class="news-content">新メニュー追加</span>
-                </li>
-                <!-- 必要に応じて過去のお知らせを追加 -->
             </ul>
         </div>
     </section>
@@ -108,12 +92,14 @@
         <div class="container intro">
             <h2 class="section-title">ご挨拶</h2>
             <p>
-                鳥常 本店は、足利の地にて炭火焼きのうなぎと
-                鳥料理を提供してまいりました。
+                鳥常本店のホームページをご覧いただき、誠にありがとうござい<span class="nowrap">ます。</span>
+                当店は足利の地にて、うなぎ一筋に暖簾を守ってまいりました。
+                厳選したうなぎを用い、捌き・焼き・たれに至るまで、すべてに手を抜くことなく、
+                一尾一尾真心を込めてご提供しております。
             </p>
-
             <p>
-                受け継がれてきた味を、心を込めてお出しいたします。
+                代々受け継いできた味を大切にしながらも、常に「今日お出しする一番良いうなぎ」を考え、
+                日々仕事と向き合っております。
             </p>
         </div>
     </section>
@@ -121,11 +107,27 @@
     <section class="section">
         <div class="container">
             <h2 class="section-title">店内のご案内</h2>
-
             <div class="gallery">
-                <img src="images/gaisou.jpg" alt="店内の様子">
-                <img src="images/naisou.jpg" alt="内観">
-                <img src="images/interior3.jpg" alt="カウンター席">
+                <div class="gallery-item">
+                    <p class="gallery-title">外観</p>
+                    <div class="gallery-photo">
+                        <img src="images/gaisou.jpg" alt="外観">
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <p class="gallery-title">内観</p>
+                    <div class="gallery-photo">
+                        <img src="images/naisou.jpg" alt="内観">
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <p class="gallery-title">宴会場</p>
+                    <div class="gallery-photo">
+                        <img src="images/enkai.jpg" alt="宴会場">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -147,6 +149,7 @@
     <section id="menu" class="section bg-dark">
         <div class="container">
             <h2 class="section-title">お品書き</h2>
+            <h3 class="sub-title">店内</h3>
             <ul class="menu-list">
                 <li>
                     <span class="menu-name popup-trigger" data-image="images/unagi-tokujo.jpg">特上うな重</span>
@@ -198,7 +201,7 @@
                 </li>
             </ul>
 
-            <h3 class="sub-title">お弁当</h3>
+            <h3 class="sub-title">お持ち帰り</h3>
 
             <ul class="menu-list">
                 <li>
@@ -273,8 +276,7 @@
         <div class="container">
             <h2 class="section-title">ご予約・お問い合わせ</h2>
             <p class="tel">
-                お電話でのご予約：<br>
-                <a href="tel:0284413330">0284-41-3330</a>
+                お電話でのご予約：<a href="tel:0284413330">0284-41-3330</a>
             </p>
         </div>
     </section>
@@ -358,7 +360,7 @@
                 document.querySelectorAll('.news-list li').forEach(item => {
                     item.addEventListener('click', () => {
                         modalTitle.innerText = item.dataset.title;
-                        modalContent.innerText = item.dataset.content;
+                        modalContent.innerText = (item.dataset.content || '').replace(/\\n/g, '\n');
                         newsModal.style.display = 'flex';
                     });
                 });
@@ -368,7 +370,6 @@
                     if (e.target === newsModal) newsModal.style.display = 'none';
                 });
             }
-
         });
     </script>
     <div class="nav-overlay" id="nav-overlay"></div>
