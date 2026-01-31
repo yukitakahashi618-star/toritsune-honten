@@ -7,34 +7,36 @@
     <title>鳥常 本店｜鰻料理専門店</title>
     <meta name="description" content="栃木県足利市の鰻料理専門店 鳥常 本店。炭火焼きのうなぎと鳥料理をご提供しております。">
     <link rel="stylesheet" href="style.css">
+
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Restaurant",
-  "name": "鳥常 本店",
-  "image": "https://example.com/images/unagi1.jpg",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "通1-2686",
-    "addressLocality": "足利市",
-    "addressRegion": "栃木県",
-    "postalCode": "326-0814",
-    "addressCountry": "JP"
-  },
-  "telephone": "0284-41-3330",
-  "servesCuisine": "和食・うなぎ",
-  "priceRange": "¥¥",
-  "smokingAllowed": false,
-  "parking": "あり"
-}
-</script>
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "鳥常 本店",
+    "image": "https://example.com/images/unagi1.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "通1-2686",
+      "addressLocality": "足利市",
+      "addressRegion": "栃木県",
+      "postalCode": "326-0814",
+      "addressCountry": "JP"
+    },
+    "telephone": "0284-41-3330",
+    "servesCuisine": "和食・うなぎ",
+    "priceRange": "¥¥",
+    "smokingAllowed": false,
+    "parking": "あり"
+  }
+  </script>
 </head>
 
 <body>
     <!-- ヘッダー -->
     <header class="header">
-        <div class="container">
+        <div class="container header-inner">
             <h1 class="logo">鳥常 本店</h1>
+
             <nav class="nav" id="nav">
                 <ul>
                     <li><a href="#about">ご挨拶</a></li>
@@ -43,11 +45,10 @@
                     <li><a href="#contact">ご予約</a></li>
                 </ul>
             </nav>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+
+            <button class="hamburger" id="hamburger" type="button" aria-label="メニュー">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
@@ -65,10 +66,10 @@
         </div>
     </section>
 
+    <!-- お知らせ -->
     <section id="news" class="section news-section">
         <div class="container">
             <h2 class="section-title">お知らせ</h2>
-            <!-- 必要に応じて過去のお知らせを追加 上に追加していく-->
             <ul class="news-list">
                 <li data-title="HP開設" data-content="鳥常本店のHPを作成しました。\nお知らせ等もこちらで記載いたします。">
                     <span class="news-date">20260201</span>
@@ -78,10 +79,10 @@
         </div>
     </section>
 
-    <!-- モーダル -->
-    <div id="news-modal" class="news-modal">
+    <!-- お知らせモーダル -->
+    <div id="news-modal" class="news-modal" aria-hidden="true">
         <div class="news-modal-content">
-            <span class="news-modal-close">&times;</span>
+            <button class="news-modal-close" type="button" aria-label="閉じる">&times;</button>
             <h3 id="modal-title"></h3>
             <p id="modal-content"></p>
         </div>
@@ -104,9 +105,11 @@
         </div>
     </section>
 
+    <!-- 店内のご案内 -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">店内のご案内</h2>
+
             <div class="gallery">
                 <div class="gallery-item">
                     <p class="gallery-title">外観</p>
@@ -145,73 +148,45 @@
         </div>
     </section>
 
-    <!-- メニュー -->
+    <!-- お品書き -->
     <section id="menu" class="section bg-dark">
         <div class="container">
             <h2 class="section-title">お品書き</h2>
+
             <h4 class="sub-title">店内</h4>
             <ul class="menu-list">
-                <li>
-                    <span class="menu-name popup-trigger" data-image="images/unagi-tokujo.jpg">特上うな重</span>
-                    <span class="menu-price">¥4,000</span>
-                </li>
-                <li>
-                    <span class="menu-name popup-trigger" data-image="images/unagi-jo.jpg">上うな重</span>
-                    <span class="menu-price">¥3,200</span>
-                </li>
-                <li>
-                    <span class="menu-name popup-trigger" data-image="images/unagi-nami.jpg">並うな重</span>
-                    <span class="menu-price">¥2,900</span>
-                </li>
-                <li>
-                    <span class="menu-name popup-trigger" data-image="images/unagi-nidan.jpg">二段重（鳥・うなぎ）</span>
-                    <span class="menu-price">¥2,700</span>
-                </li>
-                <li>
-                    <span class="menu-name popup-trigger" data-image="images/toriju.jpg">とり重</span>
-                    <span class="menu-price">¥1,100</span>
-                </li>
-                <li>
-                    <span class="menu-name popup-trigger" data-image="images/unagi-kabayaki.jpg">蒲焼</span>
-                    <span class="menu-price">¥3,200</span>
-                </li>
-                <li>
-                    <span class="menu-name popup-trigger" data-image="images/unagi-shirayaki.jpg">白焼き</span>
-                    <span class="menu-price">¥3,200</span>
-                </li>
-                <li>
-                    <span class="menu-name popup-trigger" data-image="images/unagi-kimo.jpg">うなぎ肝焼（2本）</span>
-                    <span class="menu-price">¥1,200</span>
-                </li>
-                <li>
-                    <span class="menu-name popup-trigger" data-image="images/yakitori.jpg">焼き鳥（2本）</span>
-                    <span class="menu-price">¥500</span>
-                </li>
-                <li>
-                    <span class="menu-name popup-trigger" data-image="images/kimosui.jpg">肝吸い</span>
-                    <span class="menu-price">¥250</span>
-                </li>
-                <li>
-                    <span class="menu-name popup-trigger" data-image="images/agedashi-tofu.jpg">揚げだし豆腐</span>
-                    <span class="menu-price">¥500</span>
-                </li>
-                <li>
-                    <span class="menu-name popup-trigger" data-image="images/chawanmushi.jpg">茶碗蒸し</span>
-                    <span class="menu-price">¥500</span>
-                </li>
+                <li><span class="menu-name popup-trigger" data-image="images/unagi-tokujo.jpg">特上うな重</span><span
+                        class="menu-price">¥4,000</span></li>
+                <li><span class="menu-name popup-trigger" data-image="images/unagi-jo.jpg">上うな重</span><span
+                        class="menu-price">¥3,200</span></li>
+                <li><span class="menu-name popup-trigger" data-image="images/unagi-nami.jpg">並うな重</span><span
+                        class="menu-price">¥2,900</span></li>
+                <li><span class="menu-name popup-trigger" data-image="images/unagi-nidan.jpg">二段重（鳥・うなぎ）</span><span
+                        class="menu-price">¥2,700</span></li>
+                <li><span class="menu-name popup-trigger" data-image="images/toriju.jpg">とり重</span><span
+                        class="menu-price">¥1,100</span></li>
+                <li><span class="menu-name popup-trigger" data-image="images/unagi-kabayaki.jpg">蒲焼</span><span
+                        class="menu-price">¥3,200</span></li>
+                <li><span class="menu-name popup-trigger" data-image="images/unagi-shirayaki.jpg">白焼き</span><span
+                        class="menu-price">¥3,200</span></li>
+                <li><span class="menu-name popup-trigger" data-image="images/unagi-kimo.jpg">うなぎ肝焼（2本）</span><span
+                        class="menu-price">¥1,200</span></li>
+                <li><span class="menu-name popup-trigger" data-image="images/yakitori.jpg">焼き鳥（2本）</span><span
+                        class="menu-price">¥500</span></li>
+                <li><span class="menu-name popup-trigger" data-image="images/kimosui.jpg">肝吸い</span><span
+                        class="menu-price">¥250</span></li>
+                <li><span class="menu-name popup-trigger" data-image="images/agedashi-tofu.jpg">揚げだし豆腐</span><span
+                        class="menu-price">¥500</span></li>
+                <li><span class="menu-name popup-trigger" data-image="images/chawanmushi.jpg">茶碗蒸し</span><span
+                        class="menu-price">¥500</span></li>
             </ul>
 
             <h4 class="sub-title">お持ち帰り</h4>
-
             <ul class="menu-list">
-                <li>
-                    <span class="menu-name popup-trigger" data-image="images/toribento.jpg">とり弁当</span>
-                    <span class="menu-price">¥550</span>
-                </li>
-                <li>
-                    <span class="menu-name popup-trigger" data-image="images/toribento-jo.jpg">とり弁当（上）</span>
-                    <span class="menu-price">¥850</span>
-                </li>
+                <li><span class="menu-name popup-trigger" data-image="images/toribento.jpg">とり弁当</span><span
+                        class="menu-price">¥550</span></li>
+                <li><span class="menu-name popup-trigger" data-image="images/toribento-jo.jpg">とり弁当（上）</span><span
+                        class="menu-price">¥850</span></li>
             </ul>
         </div>
     </section>
@@ -241,7 +216,7 @@
         </div>
     </section>
 
-    <!-- FAQ（支払方法を現金のみに統一） -->
+    <!-- よくあるご質問 -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">よくあるご質問</h2>
@@ -266,18 +241,17 @@
             <p>〒326-0814 栃木県足利市通1-2686</p>
             <div class="map">
                 <iframe src="https://www.google.com/maps?q=鳥常 本店 栃木県足利市通1-2686&output=embed" width="100%" height="400"
-                    style="border:0;" loading="lazy"></iframe>
+                    style="border:0;" loading="lazy">
+                </iframe>
             </div>
         </div>
     </section>
 
-    <!-- 予約 -->
+    <!-- ご予約 -->
     <section id="contact" class="section bg-dark">
         <div class="container">
             <h2 class="section-title">ご予約・お問い合わせ</h2>
-            <p class="tel">
-                お電話でのご予約：<a href="tel:0284413330">0284-41-3330</a>
-            </p>
+            <p class="tel">お電話でのご予約：<a href="tel:0284413330">0284-41-3330</a></p>
         </div>
     </section>
 
@@ -287,10 +261,16 @@
         <p>TEL：0284-41-3330</p>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- スマホ固定電話 -->
+    <div class="call-fixed">
+        <a href="tel:0284413330">📞 電話する</a>
+    </div>
+
+    <!-- ナビ用オーバーレイ -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-
             /* ===== スライドショー ===== */
             const slides = document.querySelectorAll('.slide');
             let currentIndex = 0;
@@ -301,26 +281,6 @@
                     currentIndex = (currentIndex + 1) % slides.length;
                     slides[currentIndex].classList.add('active');
                 }, 5000);
-            }
-
-            /* ===== 画像ポップアップ ===== */
-            const triggers = document.querySelectorAll('.popup-trigger');
-            const popup = document.getElementById('popup');
-            const popupImage = document.getElementById('popup-image');
-            const popupCloseBtn = document.querySelector('.popup-close');
-
-            if (popup) {
-                triggers.forEach(trigger => {
-                    trigger.addEventListener('click', () => {
-                        popupImage.src = trigger.dataset.image;
-                        popup.classList.add('active');
-                    });
-                });
-
-                popupCloseBtn.addEventListener('click', () => popup.classList.remove('active'));
-                popup.addEventListener('click', e => {
-                    if (e.target === popup) popup.classList.remove('active');
-                });
             }
 
             /* ===== ハンバーガーメニュー ===== */
@@ -356,26 +316,28 @@
             const modalContent = document.getElementById('modal-content');
             const newsModalClose = document.querySelector('.news-modal-close');
 
-            if (newsModal) {
+            if (newsModal && modalTitle && modalContent && newsModalClose) {
                 document.querySelectorAll('.news-list li').forEach(item => {
                     item.addEventListener('click', () => {
-                        modalTitle.innerText = item.dataset.title;
+                        modalTitle.innerText = item.dataset.title || '';
                         modalContent.innerText = (item.dataset.content || '').replace(/\\n/g, '\n');
                         newsModal.style.display = 'flex';
+                        newsModal.setAttribute('aria-hidden', 'false');
                     });
                 });
 
-                newsModalClose.addEventListener('click', () => newsModal.style.display = 'none');
+                const closeModal = () => {
+                    newsModal.style.display = 'none';
+                    newsModal.setAttribute('aria-hidden', 'true');
+                };
+
+                newsModalClose.addEventListener('click', closeModal);
                 newsModal.addEventListener('click', e => {
-                    if (e.target === newsModal) newsModal.style.display = 'none';
+                    if (e.target === newsModal) closeModal();
                 });
             }
         });
     </script>
-    <div class="nav-overlay" id="nav-overlay"></div>
-    <div class="call-fixed">
-        <a href="tel:0284413330">📞 電話する</a>
-    </div>
 </body>
 
 </html>
