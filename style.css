@@ -218,8 +218,10 @@ body {
 .slide {
     position: absolute;
     inset: 0;
-    background-size: cover;
+    background-size: contain;      /* ★全体表示 */
     background-position: center;
+    background-repeat: no-repeat;  /* ★繰り返し防止 */
+    background-color: #000;        /* ★余白を黒で馴染ませる */
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
@@ -396,23 +398,17 @@ body {
     letter-spacing: 0.2em;
 }
 
-.gallery-photo {
-    width: 100%;
-    aspect-ratio: 9 / 16;
-    border-radius: 18px;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+.gallery-photo{
+  width: 100%;
+  border-radius: 18px;
+  background: #000;
 }
 
-.gallery-photo img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    display: block;
+/* 画像は自然サイズで横幅だけ合わせる */
+.gallery-photo img{
+  width: 100%;
+  height: auto;     /* ★これが最重要 */
+  display: block;
 }
 
 /* =========================
