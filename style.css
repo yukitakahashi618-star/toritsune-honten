@@ -209,11 +209,11 @@ body {
     height: 60vh;
     overflow: hidden;
 }
-
+/* 
 .hero-slides {
     position: absolute;
     inset: 0;
-}
+} */
 
 .slide {
     position: absolute;
@@ -223,7 +223,7 @@ body {
     background-repeat: no-repeat;  /* ★繰り返し防止 */
     background-color: #000;        /* ★余白を黒で馴染ませる */
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    /* transition: opacity 1s ease-in-out; */
 }
 
 .slide.active {
