@@ -267,20 +267,6 @@ body {
     margin-bottom: 14px;
 }
 
-.hero-cta {
-    display: inline-block;
-    padding: 10px 16px;
-    border: 1px solid rgba(255,255,255,0.7);
-    border-radius: 999px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.hero-cta:hover {
-    border-color: #fff;
-}
-
 @media (max-width: 768px) {
     .hero {
         height: 52vh;
