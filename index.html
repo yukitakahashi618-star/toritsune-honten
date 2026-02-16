@@ -4,42 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>足利のうなぎ専門店 鳥常 本店｜鰻料理専門店</title>
-    <meta name="description" content="栃木県足利市の鰻料理専門店 鳥常 本店。炭火焼きのうなぎと鳥料理をご提供しております。">
+    <title>鳥常 本店｜足利のうなぎ専門店｜鰻料理【栃木県足利市】</title>
+    <meta name="description" content="栃木県足利市のうなぎ専門店 鳥常 本店。丁寧に焼き上げる鰻重・白焼きが人気。足利でうなぎをお探しの方はぜひご来店ください。専用駐車場あり。">
     <link rel="stylesheet" href="style.css">
 
     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Restaurant",
-    "name": "鳥常 本店",
-    "image": "https://example.com/images/unagi1.jpg",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "通1-2686",
-      "addressLocality": "足利市",
-      "addressRegion": "栃木県",
-      "postalCode": "326-0814",
-      "addressCountry": "JP"
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "鳥常 本店",
+  "image": "https://example.com/images/unagi1.jpg",
+  "hasMap": "https://www.google.com/maps?q=鳥常%20本店%20栃木県足利市通１丁目２６８６",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "通１丁目２６８６",
+    "addressLocality": "足利市",
+    "addressRegion": "栃木県",
+    "postalCode": "326-0814",
+    "addressCountry": "JP"
+  },
+  "telephone": "0284-41-3330",
+  "servesCuisine": "和食・うなぎ",
+  "priceRange": "¥¥",
+  "smokingAllowed": false,
+  "parking": "あり",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Wednesday","Thursday","Friday","Saturday","Sunday","Monday"],
+      "opens": "11:00",
+      "closes": "14:00"
     },
-    "telephone": "0284-41-3330",
-    "servesCuisine": "和食・うなぎ",
-    "priceRange": "¥¥",
-    "smokingAllowed": false,
-    "parking": "あり"
-  }
-  </script>
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Wednesday","Thursday","Friday","Saturday","Sunday","Monday"],
+      "opens": "17:00",
+      "closes": "20:00"
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
     <!-- ヘッダー -->
     <header class="header">
         <div class="container header-inner">
-            <h1 class="logo">鳥常 本店</h1>
+            <h1 class="logo">足利のうなぎ専門店 鳥常 本店</h1>
 
             <nav class="nav" id="nav">
                 <ul>
-                    <li><a href="#about">お知らせ</a></li>
+                    <li><a href="#news">お知らせ</a></li>
                     <li><a href="#info">ご案内</a></li>
                     <li><a href="#menu">お品書き</a></li>
                     <li><a href="#storeinfo">店内のご案内</a></li>
@@ -57,10 +72,13 @@
     <!-- メインビジュアル -->
     <section class="hero">
         <div class="hero-slides">
-            <!-- <div class="slide active" style="background-image: url('images/unajyu.jpg');"></div>
-            <div class="slide" style="background-image: url('images/torijyu.jpg');"></div>
-            <div class="slide" style="background-image: url('images/gaikan.jpg');"></div> -->
-        <div class="slide active" style="background-image: url('images/gaikan.jpg');"></div>
+            <div class="slide active" style="background-image: url('images/gaikan.jpg');"></div>
+        </div>
+
+        <div class="hero-text">
+            <h2>足利でうなぎを味わうなら 鳥常 本店</h2>
+            <p>丁寧に焼き上げる鰻料理を提供する足利市のうなぎ専門店</p>
+            <a class="hero-cta" href="#contact">ご予約はこちら（お電話）</a>
         </div>
     </section>
 
@@ -208,9 +226,11 @@
         <div class="container">
             <h2 class="section-title">アクセス</h2>
             <p class="shop-name">鳥常 本店</p>
-            <p>〒326-0814 栃木県足利市通1-2686</p>
+            <p>〒326-0814 栃木県足利市通１丁目２６８６</p>
+            <p>営業時間：11:00〜14:00 / 17:00〜20:00</p>
+            <p>定休日：火曜日</p>
             <div class="map">
-                <iframe src="https://www.google.com/maps?q=鳥常 本店 栃木県足利市通1-2686&output=embed" width="100%" height="400"
+                <iframe src="https://www.google.com/maps?q=鳥常 本店 栃木県足利市通１丁目２６８６&output=embed" width="100%" height="400"
                     style="border:0;" loading="lazy">
                 </iframe>
             </div>
@@ -226,8 +246,8 @@
     </section>
 
     <footer class="footer">
-        <p>鳥常 本店</p>
-        <p>〒326-0814 栃木県足利市通1-2686</p>
+        <p>足利のうなぎ専門店 鳥常 本店</p>
+        <p>〒326-0814 足利市通１丁目２６８６</p>
         <p>TEL：0284-41-3330</p>
     </footer>
 

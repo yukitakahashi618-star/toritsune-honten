@@ -209,11 +209,11 @@ body {
     height: 60vh;
     overflow: hidden;
 }
-/* 
+
 .hero-slides {
     position: absolute;
     inset: 0;
-} */
+}
 
 .slide {
     position: absolute;
@@ -223,23 +223,81 @@ body {
     background-repeat: no-repeat;  /* ★繰り返し防止 */
     background-color: #000;        /* ★余白を黒で馴染ませる */
     opacity: 0;
-    /* transition: opacity 1s ease-in-out; */
+    transition: opacity 1s ease-in-out;
 }
 
 .slide.active {
     opacity: 1;
 }
 
-.hero-text {
+.hero {
     position: relative;
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 36px;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
+    height: 60vh;
+    overflow: hidden;
+}
+
+.hero-text {
+    position: absolute;
+    left: 50%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+    width: min(92%, 760px);
+    text-align: center;
+
+    background: rgba(0, 0, 0, 0.55);
+    padding: 28px 22px;
+    border-radius: 14px;
+
+    color: #fff;
+}
+
+.hero-text h2 {
+    font-size: 28px;
+    letter-spacing: 0.10em;
+    line-height: 1.35;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    line-height: 1.8;
+    margin-bottom: 14px;
+}
+
+.hero-cta {
+    display: inline-block;
+    padding: 10px 16px;
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 999px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.hero-cta:hover {
+    border-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 52vh;
+    }
+
+    .hero-text {
+        padding: 22px 16px;
+    }
+
+    .hero-text h2 {
+        font-size: 20px;
+        letter-spacing: 0.06em;
+    }
+
+    .hero-text p {
+        font-size: 14px;
+    }
 }
 
 /* =========================
